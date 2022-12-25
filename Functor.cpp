@@ -6,14 +6,17 @@ Functor::Functor() : _sum(0), _count(0)
 
 void Functor::operator()(std::vector<int> v)
 {
-	_sum = 0;
-	_count = 0;
-	for (const int& data : v)
+	if (!v.empty())
 	{
-		if (!(data % 3))
+		_sum = 0;
+		_count = 0;
+		for (const int& data : v)
 		{
-			_sum += data;
-			++_count;
+			if (!(data % 3))
+			{
+				_sum += data;
+				++_count;
+			}
 		}
 	}
 }
